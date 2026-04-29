@@ -87,12 +87,10 @@ function menu() {
             Busacar_nombre(menu)
             break;
         case '4':
-            console.log('opcion 4');
-            menu();
+            ActualizarEstado(menu);
             break;
         case '5':
-            console.log('opcion 5');
-            menu();
+            Eliminar(menu)
             break;
         case '6':
             console.log('Saliendo ....');
@@ -164,5 +162,35 @@ function Busacar_nombre(callback) {
             console.log("No existen registro")
             callback();
         }
-    }, 4000)
+    }, 2000)
+}
+
+function ActualizarEstado (callback){
+    let numero_a_buscar = Number(prompt("Ingrese el numero de la habitacion a cambiar"));
+    console.log("Esperando al personal......")
+    setTimeout(function () {
+        let buscado = Habitaciones.find(habitacion => {
+            return habitacion.numero=== numero_a_buscar
+        });
+        if (buscado) {
+            let estadomodificar = prompt("Ingrese el nuevo estado (Libre, Ocupado, Limpieza): ");
+            Habitaciones.estado = estadomodificar;
+            console.log("Estado modificado...");
+        }else{
+            console.log("El numero no existe");
+        }
+        callback();
+    }, 3000);   
+}
+
+
+function Eliminar (callback){
+    let numero = Number(prompt("Ingrese el numero de la habitacion a eliminar"));
+    console.log("En busqueda...")
+    const buscar = Habitaciones.findIndex(habitacion => habitacion.numero === numero);
+    if(buscar){
+        Habitaciones.splice(numero,1);
+    }
+    console.log("Eliminado")
+    callback();
 }
