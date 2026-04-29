@@ -70,3 +70,42 @@ let Habitaciones = [
             huesped: "Sofía Torres"
         }
 ]
+
+
+
+function menu(){
+    let opc = prompt("==== Hotel ===  \n1.Registra una nueva habitacion \n2..Listar habitaciones \n3.Bucar habitaciones por numero\n4.Cambiar estado de una habitacion\n5.eliminar habitacion\n6.Salir");
+    console.log(typeof opc)
+    switch (opc) {
+        case '1':
+            console.log('opcion 1');
+            menu();
+            break;
+        case '2':
+            console.log('opcion 2');
+            menu();
+            break;
+        case '3':
+            console.log('opcion 3')
+            menu();
+            break;
+        case '4':
+            console.log('opcion 4');
+            menu();
+            break;
+        case '5':
+            console.log('opcion 5');
+            menu();
+            break;
+        case '6':
+            console.log('Saliendo ....');
+            break;
+        default:
+            console.log('opcion no valida');
+            menu();
+            break;
+    
+    }
+    
+    }
+    menu();
