@@ -78,8 +78,7 @@ function menu(){
     console.log(typeof opc)
     switch (opc) {
         case '1':
-            console.log('opcion 1');
-            menu();
+            Registrar(menu);
             break;
         case '2':
             console.log('opcion 2');
@@ -109,3 +108,23 @@ function menu(){
     
     }
     menu();
+
+    function Registrar (callback){
+        let Numero = Number(prompt("Ingrese el numero de la habitacion: "));
+        let Tipo = prompt("Ingrese el tipo de la habitacion: ");
+        let Precio = Number(prompt("Ingrese el precio de la habitacion: "));
+        let Estado = prompt("Ingrese el estado de la habitacion: ");
+        let Huesped = prompt("Ingrese el nombre del huesped de la habitacion: ");
+
+        let habitacion = {Numero, Tipo, Precio, Estado, Huesped};
+        console.log("validando información de la habitación...")
+        setTimeout(function(){
+            Habitaciones.push(habitacion);
+            console.log("Habitacion registrada correctamente")
+            console.log("Gracias por su preferencia "+Huesped)
+            callback();
+        },2000)
+
+    }
+
+    
